@@ -31,4 +31,5 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 如果下载安装插件速度慢，也可以考虑解压bundle.zip包，覆盖bundle文件夹。
 
 ##其他
-VIM中文社区 http://www.osvim.org
+VIM中文社区： http://www.osvim.org
+VIMqq交流群：475392251
