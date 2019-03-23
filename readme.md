@@ -12,6 +12,7 @@ git clone https://github.com/gmarik/vundle.git d:/vim/vimfiles/bundle/vundle
 :BundleList     //会显示你vimrc里面填写的所有插件名称
 :BundleInstall  //会自动下载安装或更新你的插件。
 
+如果下载安装插件速度慢，也可以考虑解压bundle.zip包，覆盖bundle文件夹。
 
 ## Linux系统
 ### ctags插件安装：
@@ -26,3 +27,8 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 :BundleList     //会显示你vimrc里面填写的所有插件名称
 :BundleInstall  //会自动下载安装或更新你的插件。
+
+如果下载安装插件速度慢，也可以考虑解压bundle.zip包，覆盖bundle文件夹。
+
+##其他
+VIM中文社区 http://www.osvim.org
