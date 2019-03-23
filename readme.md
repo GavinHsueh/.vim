@@ -1,3 +1,6 @@
+## 关于myvim
+使用vim几年的时间，也总结整理了一些vim使用方法，这里主要是整理我本人使用的vim配置文档和相关插件、脚本，感兴趣的童鞋可以借鉴参考。
+
 ## Windows系统
 ### ctags插件安装：
 将ctags.exe文件放到vim的安装目录中即可，如vim73文件夹。
@@ -30,6 +33,6 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 如果下载安装插件速度慢，也可以考虑解压bundle.zip包，覆盖bundle文件夹。
 
-##其他
+## 其他
 VIM中文社区： http://www.osvim.org
 VIMqq交流群：475392251
