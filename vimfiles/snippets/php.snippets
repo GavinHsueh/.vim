@@ -405,11 +405,11 @@ snippet html::meta
 snippet html::favicon
 	html::favicon(${1:$url});
 snippet html::icon
-	html::icon(${1:$name}, ${2:$class=''});
+	html::icon(${1:$name},${2:$class=''});
 snippet html::rss
 	html::rss(${1:$url},${2:$title});
 snippet html::a
-	html::a(${1:$href}, ${2:$title}, ${3:$attr});
+	html::a(${1:$href},${2:$title},${3:$attr});
 snippet html::mailto
 	html::mailto(${1:$mail},${2:$title});
 snippet html::select
@@ -479,10 +479,10 @@ snippet js::execute
 
 # 字符串处理函数
 snippet strpos
-	strpos(${1:$string}, ${2:$str})${3}
+	strpos(${1:$string},${2:$str})${3}
 snippet substr
-	substr(${1:$string}, ${2:$start}, ${3:$length})${4}
+	substr(${1:$string},${2:$start},${3:$length})${4}
 snippet str_replace
-	str_replace(${1:$oldstr}, ${2:$newstr}, ${3:$string})${4}
+	str_replace(${1:$oldstr},${2:$newstr},${3:$string})${4}
 snippet substr_replace
-	substr_replace(${1:$string}, ${2:$newstr}, ${3:$start}, ${4:[length]})${5}
+	substr_replace(${1:$string},${2:$newstr},${3:$start},${4:[length]})${5}
