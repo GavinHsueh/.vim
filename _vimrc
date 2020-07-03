@@ -19,7 +19,7 @@
 ",t+b : 显隐tagbar插件
 ",t+l : 显隐taglist插件
 ",n+t : 显隐nerdtree插件
-"Ctrl+p : 一个全路径模糊文件，缓冲区，最近最多使用，... 检索插件(ctrlp.vim 插件)
+"Ctrl+p : 一个全路径模糊文件，缓冲区，最近最多使用，检索插件(ctrlp.vim 插件)
 ",ol : 左右纵向查看已打开的文件列表
 ",ul : 上下横向查看已打开的文件列表
 "Ctrl+e : emmet插件，快速写HTML代码
@@ -60,8 +60,8 @@ endif
 "  < Linux Gvim/Vim 默认配置> 做了一点修改
 " -----------------------------------------------------------------------------
 if g:islinux
-    set hlsearch         "高亮搜索
-    set incsearch        "在输入要搜索的文字时，实时匹配
+    set hlsearch         " 高亮搜索
+    set incsearch        " 在输入要搜索的文字时，实时匹配
     set mouse=a          " 在任何模式下启用鼠标
     set t_Co=256         " 在终端启用256色
     set backspace=2      " 设置退格键可用
@@ -85,9 +85,9 @@ if g:islinux
 endif
 
 if g:iswindows
-set encoding=utf-8                                       " 设置gvim内部编码，默认不更改
-set fileencoding=utf-8                                   " 设置当前文件编码，可以更改，如：gbk（同cp936）
-set fileencodings=utf-8                                  " 设置支持打开的文件的编码
+set encoding=utf-8                                        " 设置gvim内部编码，默认不更改
+set fileencoding=utf-8                                    " 设置当前文件编码，可以更改，如：gbk（同cp936）
+set fileencodings=utf-8                                   " 设置支持打开的文件的编码
 endif
 
 " -----------------------------------------------------------------------------
@@ -132,27 +132,27 @@ autocmd FileType java,php setl tabstop=4
 autocmd FileType html,python,vim,javascript setlocal shiftwidth=2
 autocmd FileType html,python,vim,javascript setlocal tabstop=2
 set smarttab                                          " 指定按一次backspace就删除shiftwidth宽度
-set backspace=indent,eol,start 						            " 不设定在插入状态无法用退格键和 Delete 键删除回车符
-set showmatch               						              " 高亮现实匹配的括号 
-set autoindent              						              " 自动对齐
-set autochdir              							              " 自动切换当前目录为当前文件所在的目录
-set backupcopy=yes         							              " 设置备份时的行为为覆盖
-set nowrapscan              						              " 禁止在搜索到文件两端时重新搜索
-set noerrorbells            						              " 关闭错误信息响铃
-set novisualbell            						              " 关闭使用可视响铃代替呼叫
-set hidden                  						              " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
-let javascript_enable_domhtmlcss=1					          " 打开javascript对dom、html和css的支持
-set autoread										                      " 当文件在外部被修改，自动更新该文件
+set backspace=indent,eol,start 						  " 不设定在插入状态无法用退格键和 Delete 键删除回车符
+set showmatch               						  " 高亮现实匹配的括号 
+set autoindent              						  " 自动对齐
+set autochdir              							  " 自动切换当前目录为当前文件所在的目录
+set backupcopy=yes         							  " 设置备份时的行为为覆盖
+set nowrapscan              						  " 禁止在搜索到文件两端时重新搜索
+set noerrorbells            						  " 关闭错误信息响铃
+set novisualbell            						  " 关闭使用可视响铃代替呼叫
+set hidden                  						  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
+let javascript_enable_domhtmlcss=1					  " 打开javascript对dom、html和css的支持
+set autoread										  " 当文件在外部被修改，自动更新该文件
 set ignorecase                                        " 搜索模式里忽略大小写
 set smartcase                                         " 如果搜索模式包含大写字符，不使用 'ignorecase' 选项，只有在输入搜索模式并且打开 'ignorecase' 选项时才会使用
-set hlsearch                						              " 搜索时高亮显示被找到的文本
-set incsearch               						              " 输入搜索内容时就显示搜索结果
+set hlsearch                						  " 搜索时高亮显示被找到的文本
+set incsearch               						  " 输入搜索内容时就显示搜索结果
 " set noincsearch                                     " 在输入要搜索的文字时，取消实时匹配
-set writebackup                             		      " 保存文件前建立备份，保存成功后删除该备份
-set nobackup                                		      " 设置无备份文件
-set noswapfile                              		      " 设置无临时文件
+set writebackup                             		  " 保存文件前建立备份，保存成功后删除该备份
+set nobackup                                		  " 设置无备份文件
+set noswapfile                              		  " 设置无临时文件
 set nowb
-set vb t_vb=                                		      " 关闭提示音
+set vb t_vb=                                		  " 关闭提示音
 "set mouse=a                                          " 在所有的模式下面打开鼠标。
 
 " -----------------------------------------------------------------------------
@@ -161,22 +161,22 @@ set vb t_vb=                                		      " 关闭提示音
 set foldenable                                        " 启用折叠
 "set foldmethod=indent                                " indent 折叠方式
 set foldmethod=marker                                 " marker 折叠方式
-set foldcolumn=1            						              " 设置折叠区域的宽度
-setlocal foldlevel=1        						              " 设置折叠层数为
+set foldcolumn=1            						  " 设置折叠区域的宽度
+setlocal foldlevel=1        						  " 设置折叠层数为
 ":set foldopen=all
-":set foldclose=all          						              " 设置为自动关闭折叠
-:highlight FoldColumn guibg=grey guifg=red   		      " 设置折叠颜色
+":set foldclose=all          						  " 设置为自动关闭折叠
+:highlight FoldColumn guibg=grey guifg=red   		  " 设置折叠颜色
 " 常规模式下用空格键来开关光标行所在折叠（注：zR 展开所有折叠，zM 关闭所有折叠）
 nnoremap - @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-let b:javascript_fold=1								                " 打开javascript折叠
+let b:javascript_fold=1								  " 打开javascript折叠
 let php_folding=0                                     " 打开自动折叠的功能。
 
 " -----------------------------------------------------------------------------
 "  < 界面配置 >
 " -----------------------------------------------------------------------------
 syntax enable
-syntax on                   						              " 自动语法高亮
-:colo molokai                						              " 配色方案
+syntax on                   						  " 自动语法高亮
+:colo molokai                						  " 配色方案
 set number                                            " 显示行号
 set laststatus=2                                      " 启用状态栏信息
 set statusline=\ %F%m%r%h%w%=\ [%{&ff}]\ [%Y]\ [%{&fileencoding}]\ [%04l,%04v][%p%%]\ [LEN=%L]
@@ -189,9 +189,9 @@ autocmd FileType txt    set wrap
 autocmd FileType doc   set wrap
 set shortmess=atI                                     " 去掉欢迎界面
 set helplang=cn                                       " 中文帮助
-set ruler                  							              " 打开状态栏标尺
-set magic                   						              " 设置魔术
-set completeopt=longest,menu  						            " 关掉智能补全时的预览窗口
+set ruler                  							  " 打开状态栏标尺
+set magic                   						  " 设置魔术
+set completeopt=longest,menu  						  " 关掉智能补全时的预览窗口
 
 " 使状态行根据状态的不同，显示不同的颜色。
 function! InsertStatuslineColor(mode)
@@ -265,9 +265,9 @@ set t_te=
 " -----------------------------------------------------------------------------
 "  < 快捷键设置 >
 " -----------------------------------------------------------------------------
-nmap <C-N> :tabnew<CR>      						              " 新建标签
+nmap <C-N> :tabnew<CR>      						            " 新建标签
 nmap <F5> :Grep 
-nmap <F12> :exit<CR>        						              " 当前窗口保存并退出
+nmap <F12> :exit<CR>        						            " 当前窗口保存并退出
 nmap cS :%s/\s\+$//g<CR>:noh<CR>					            " 常规模式下输入 cS 清除行尾空格
 nmap cM :%s/\r$//g<CR>:noh<CR>						            " 常规模式下输入 cM 清除行尾 ^M 符号
 map <C-Tab> :bnext<CR>
@@ -335,7 +335,7 @@ noremap <silent> <s-q> :BufExplorer<CR>
 " \bs 上下方式查看
 "noremap <silent> ul :BufExplorerHorizontalSplit<CR>
 " \bv 左右方式查看
-"noremap <silent> ol :BufExplorerVerticalSplit<CR>   "m是ALT键
+"noremap <silent> ol :BufExplorerVerticalSplit<CR>   " m是ALT键
 
 let g:bufExplorerDefaultHelp      = 0     " 不显示默认帮助信息
 let g:bufExplorerShowRelativePath = 1     " 显示相对路径
@@ -395,9 +395,9 @@ let g:indentLine_enabled=0
 "  < neocomplcache 插件配置 >
 " -----------------------------------------------------------------------------
 " 关键字补全、文件路径补全、tag补全等等，各种，非常好用，速度超快。
-let g:neocomplcache_enable_at_startup = 1     "vim 启动时启用插件
+let g:neocomplcache_enable_at_startup = 1       " vim 启动时启用插件
 "let g:neocomplcache_enable_quick_match = 1
-"let g:neocomplcache_disable_auto_complete = 1 "不自动弹出补全列表
+"let g:neocomplcache_disable_auto_complete = 1  " 不自动弹出补全列表
 " 在弹出补全列表后用 <c-p> 或 <c-n> 进行上下选择效果比较好
 
 
@@ -405,12 +405,12 @@ let g:neocomplcache_enable_at_startup = 1     "vim 启动时启用插件
 "  < nerdtree 插件配置 >
 " -----------------------------------------------------------------------------
 " 有目录村结构的文件浏览插件
-nnoremap <silent> <F3> :NERDTreeToggle<CR>  "打开/关闭NERDTree
+nnoremap <silent> <F3> :NERDTreeToggle<CR>  " 打开/关闭NERDTree
 let NERDTreeChDirMode=2 
 let NERDTreeMouseMode=2
-let NERDTreeWinPos="left"                   "在左侧显示NERDTree窗口
-let NERDTreeWinSize=23                      "设置NERDTree窗口的宽度
-let NERDTreeDirArrows=0						"nerdtree插件目录箭头 1 显示箭头  0传统+-|号
+let NERDTreeWinPos="left"                   " 在左侧显示NERDTree窗口
+let NERDTreeWinSize=23                      " 设置NERDTree窗口的宽度
+let NERDTreeDirArrows=0						" nerdtree插件目录箭头 1 显示箭头  0传统+-|号
 
 
 " -----------------------------------------------------------------------------
@@ -440,7 +440,7 @@ let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_enable_highlighting=1
-let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
+let g:syntastic_python_checkers=['pyflakes']   " 使用pyflakes,速度比pylint快
 let g:syntastic_javascript_checkers = ['jsl', 'jshint']
 let g:syntastic_html_checkers=['tidy', 'jshint']
 " 修改高亮的背景色, 适应主题
@@ -458,7 +458,7 @@ function! ToggleErrors()
         Errors
     endif
 endfunction
-"nnoremap <Leader>s :call ToggleErrors()<cr>
+" nnoremap <Leader>s :call ToggleErrors()<cr>
 " nnoremap <Leader>sn :lnext<cr>
 " nnoremap <Leader>sp :lprevious<cr>
 
@@ -468,8 +468,8 @@ endfunction
 " -----------------------------------------------------------------------------
 " 相对 TagList 能更好的支持面向对象
 " 常规模式下输入 tb 调用插件，如果有打开 TagList 窗口则先将其关闭
-let g:tagbar_width=23                       "设置窗口宽度
-let g:tagbar_right=1                        "在右侧窗口中显示
+let g:tagbar_width=23                       " 设置窗口宽度
+let g:tagbar_right=1                        " 在右侧窗口中显示
 
 
 " -----------------------------------------------------------------------------
@@ -478,12 +478,12 @@ let g:tagbar_right=1                        "在右侧窗口中显示
 " 高效地浏览源码, 其功能就像vc中的workpace
 " 那里面列出了当前文件中的所有宏,全局变量, 函数名等
 " 常规模式下输入 tl 调用插件，如果有打开 Tagbar 窗口则先将其关闭
-"let Tlist_Auto_Open=1       "当打开vim时自动启用taglist插件
-let Tlist_Show_One_File=1    "只显示当前文件的tag
-let Tlist_Exit_OnlyWindow=1  "如果taglist窗口是最后一个窗口，则退出vim
-let Tlist_Use_Right_Window=1  "在右侧显示taglist窗口
-let Tlist_WinWidth=23        "设置taglist窗口的宽度
-let Tlist_File_Fold_Auto_Close=0            "自动折叠
+"let Tlist_Auto_Open=1                    " 当打开vim时自动启用taglist插件
+let Tlist_Show_One_File=1                 " 只显示当前文件的tag
+let Tlist_Exit_OnlyWindow=1               " 如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window=1              " 在右侧显示taglist窗口
+let Tlist_WinWidth=23                     " 设置taglist窗口的宽度
+let Tlist_File_Fold_Auto_Close=0          " 自动折叠
 let Tlist_Sort_Type = "order"
 let Tlist_Enable_Fold_Column = 0
 let tlist_php_settings = 'php;c:class;i:interfaces;d:constant;f:function'
