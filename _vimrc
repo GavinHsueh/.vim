@@ -78,7 +78,7 @@ endif
 " -----------------------------------------------------------------------------
 " 注：使用utf-8格式后，软件与程序源码、文件路径不能有中文，否则报错
 if g:islinux
-    set encoding=2byte-gb18030                            " 设置gvim内部编码，默认不更改
+"   set encoding=2byte-gb18030                            " 设置gvim内部编码，默认不更改
     set fileencoding=utf-8                                " 设置当前文件编码，可以更改，如：gbk（同cp936）
     set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1     " 设置支持打开的文件的编码
     set termencoding=utf-8
