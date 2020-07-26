@@ -158,18 +158,18 @@ set vb t_vb=                                		  " 关闭提示音
 " -----------------------------------------------------------------------------
 "  < 折叠设置 >
 " -----------------------------------------------------------------------------
-set foldenable                                        " 启用折叠
-"set foldmethod=indent                                " indent 折叠方式
-set foldmethod=marker                                 " marker 折叠方式
-set foldcolumn=1            						  " 设置折叠区域的宽度
-setlocal foldlevel=1        						  " 设置折叠层数为
+"set foldenable                                        " 启用折叠
+"set foldmethod=indent                                 " indent 折叠方式
+"set foldmethod=marker                                 " marker 折叠方式
+"set foldcolumn=1            						   " 设置折叠区域的宽度
+"setlocal foldlevel=1        						   " 设置折叠层数为
 ":set foldopen=all
-":set foldclose=all          						  " 设置为自动关闭折叠
-:highlight FoldColumn guibg=grey guifg=red   		  " 设置折叠颜色
+":set foldclose=all          						   " 设置为自动关闭折叠
+":highlight FoldColumn guibg=grey guifg=red   		   " 设置折叠颜色
 " 常规模式下用空格键来开关光标行所在折叠（注：zR 展开所有折叠，zM 关闭所有折叠）
-nnoremap - @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-let b:javascript_fold=1								  " 打开javascript折叠
-let php_folding=0                                     " 打开自动折叠的功能。
+"nnoremap - @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+"let b:javascript_fold=1							   " 打开javascript折叠
+"let php_folding=0                                     " 打开自动折叠的功能。
 
 " -----------------------------------------------------------------------------
 "  < 界面配置 >
@@ -212,7 +212,7 @@ hi statusline guibg=white
 if g:isGUI
      au GUIEnter * simalt ~x                          " 窗口启动时自动最大化
      winpos 300 10                                    " 指定窗口出现的位置，坐标原点在屏幕左上角
-     set lines=50 columns=150                         " 指定窗口大小，lines为高度，columns为宽度
+"     set lines=50 columns=150                         " 指定窗口大小，lines为高度，columns为宽度
 endif
 
 " 显示/隐藏菜单栏、工具栏、滚动条，可用 F2 切换
