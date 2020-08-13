@@ -350,9 +350,9 @@ snippet ..
 snippet assign
 	$this->assign("${1:varName}",${2:varValue});
 snippet createLink
-	$this->createLink("${1:moduleName}","${2:funName}","${3:key1=value1&key2=value2}")${4}
+	$this->createLink("${1:moduleName}","${2:funName}")${3}
 snippet inlink
-	$this->inlink("${1:funName}","${2:key1=value1&key2=value2}")${3}
+	$this->inlink("${1:funName}")${2}
 snippet dao
 	$this->dao->${1}
 snippet post
@@ -409,39 +409,39 @@ snippet html::icon
 snippet html::rss
 	html::rss(${1:$url},${2:$title});
 snippet html::a
-	html::a(${1:$href},${2:$title},${3:$attr});
+	html::a();
 snippet html::mailto
 	html::mailto(${1:$mail},${2:$title});
 snippet html::select
-	html::select(${1:$name},${2:$options},${3:$selected},${4:$attr});
+	html::select(${1:$name},${2:$options},${3:$selected});
 snippet html::selectGroup
-	html::selectGroup(${1:$name},${2:$group},${3:$selected},${4:$attr});
+	html::selectGroup(${1:$name},${2:$group},${3:$selected});
 snippet html::radio
-	html::radio(${1:$name},${2:$options},${3:$checked},${4:$attr});
+	html::radio(${1:$name},${2:$options},${3:$checked});
 snippet html::checkbox
-	html::checkbox(${1:$name},${2:$options},${3:$checked},${4:$attr});
+	html::checkbox(${1:$name},${2:$options},${3:$checked});
 snippet html::text
-	html::input(${1:$name},${2:$value},${3:$attr});
+	html::input();
 snippet html::hidden
-	html::hidden(${1:$name},${2:$value},${3:$attr});
+	html::hidden();
 snippet html::password
-	html::password(${1:$name},${2:$value},${3:$attr});
+	html::password();
 snippet html::textarea
-	html::textarea(${1:$name},${2:$value},${3:$attr});
+	html::textarea();
 snippet html::file
-	html::file(${1:$name},${2:$attr});
+	html::file();
 snippet html::img
-	html::image(${1:$src},${2:$attr});
+	html::image(${1:$src});
 snippet html::submit
-	html::submitButton(${1:$label},${2:'btn btn-primary'},${3:$attr});
+	html::submitButton(${1:$label},${2:'btn btn-primary'});
 snippet html::reset
-	html::resetButton(${1:$label},${2:class=''});
+	html::resetButton(${1:$label});
 snippet html::back
-	html::backButton(${1:$label},${2:$attr},${3:class=''});
+	html::backButton(${1:$label});
 snippet html::button
-	html::commonButton(${1:$label}, ${2:'btn btn-default'}, ${3:$attr});
+	html::commonButton(${1:$label}, ${2:'btn btn-default'});
 snippet html::linkButton
-	html::linkButton(${1:$label},${2:$link},${3:'btn btn-default'},${4:$attr});
+	html::linkButton(${1:$label},${2:$link},${3:'btn btn-default'});
 snippet html::closeButton
 	html::closeButton();
 snippet html::selectButton
@@ -476,13 +476,3 @@ snippet js::exportConfigVars
 	js::exportConfigVars();
 snippet js::execute
 	js::execute(${1:$code});
-
-# 字符串处理函数
-snippet strpos
-	strpos(${1:$string},${2:$str})${3}
-snippet substr
-	substr(${1:$string},${2:$start},${3:$length})${4}
-snippet str_replace
-	str_replace(${1:$oldstr},${2:$newstr},${3:$string})${4}
-snippet substr_replace
-	substr_replace(${1:$string},${2:$newstr},${3:$start},${4:[length]})${5}
