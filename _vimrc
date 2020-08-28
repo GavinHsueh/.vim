@@ -11,21 +11,17 @@
 "F10 : 
 "F11 : 
 "F12 : 当前窗口保存并退出
-"Ctrl+N : 新建标签
 "ctrl+]: 光标便跳转到函数的定义处
 "ctrl+t: 光标返回函数调用处
-"<C-Tab>: 切换VIM各个标签 
-",W+M : 打开/关闭WinManager插件（文档目录和taglist组合窗口）
-",t+b : 显隐tagbar插件
-",t+l : 显隐taglist插件
-",n+t : 显隐nerdtree插件
-"Ctrl+p : 一个全路径模糊文件，缓冲区，最近最多使用，检索插件(ctrlp.vim 插件)
+",tb : 显隐tagbar插件
+",tl : 显隐taglist插件
+",nt : 显隐nerdtree插件
+"Ctrl+p : 一个全路径模糊文件，缓冲区，检索插件(ctrlp.vim 插件)
 ",ol : 左右纵向查看已打开的文件列表
 ",ul : 上下横向查看已打开的文件列表
 "Ctrl+e : emmet插件，快速写HTML代码
 ",line : 开启/关闭对齐线
 ",r : mark插件，标记加亮不同标签
-" -  : 开关折叠
 ",vip : 多窗口时将当前窗口最大化
 "m+字母 : 设置一个标记(a-z)
 "`+字母 : 跳转到指定标记处
@@ -155,21 +151,6 @@ set nowb
 set vb t_vb=                                		  " 关闭提示音
 "set mouse=a                                          " 在所有的模式下面打开鼠标。
 
-" -----------------------------------------------------------------------------
-"  < 折叠设置 >
-" -----------------------------------------------------------------------------
-"set foldenable                                        " 启用折叠
-"set foldmethod=indent                                 " indent 折叠方式
-"set foldmethod=marker                                 " marker 折叠方式
-"set foldcolumn=1            						   " 设置折叠区域的宽度
-"setlocal foldlevel=1        						   " 设置折叠层数为
-":set foldopen=all
-":set foldclose=all          						   " 设置为自动关闭折叠
-":highlight FoldColumn guibg=grey guifg=red   		   " 设置折叠颜色
-" 常规模式下用空格键来开关光标行所在折叠（注：zR 展开所有折叠，zM 关闭所有折叠）
-"nnoremap - @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-"let b:javascript_fold=1							   " 打开javascript折叠
-"let php_folding=0                                     " 打开自动折叠的功能。
 
 " -----------------------------------------------------------------------------
 "  < 界面配置 >
@@ -178,8 +159,6 @@ syntax enable
 syntax on                   						  " 自动语法高亮
 :colo molokai                						  " 配色方案
 set number                                            " 显示行号
-set laststatus=2                                      " 启用状态栏信息
-set statusline=\ %F%m%r%h%w%=\ [%{&ff}]\ [%Y]\ [%{&fileencoding}]\ [%04l,%04v][%p%%]\ [LEN=%L]
 set cmdheight=1                                       " 设置命令行的高度，默认为1
 set cursorline                                        " 突出显示当前行
 set nowrap                                            " 设置不自动换行
@@ -193,6 +172,10 @@ set ruler                  							  " 打开状态栏标尺
 set magic                   						  " 设置魔术
 set completeopt=longest,menu  						  " 关掉智能补全时的预览窗口
 
+
+" 状态栏配置
+set laststatus=2                                      " 启用状态栏信息
+set statusline=\ %F%m%r%h%w%=\ [%{&ff}]\ [%Y]\ [%{&fileencoding}]\ [%04l,%04v][%p%%]\ [LEN=%L]
 " 使状态行根据状态的不同，显示不同的颜色。
 function! InsertStatuslineColor(mode)
 if a:mode == 'i'
@@ -265,15 +248,13 @@ set t_te=
 " -----------------------------------------------------------------------------
 "  < 快捷键设置 >
 " -----------------------------------------------------------------------------
-nmap <C-N> :tabnew<CR>      						            " 新建标签
 nmap <F5> :Grep 
 nmap <F12> :exit<CR>        						            " 当前窗口保存并退出
 nmap cS :%s/\s\+$//g<CR>:noh<CR>					            " 常规模式下输入 cS 清除行尾空格
 nmap cM :%s/\r$//g<CR>:noh<CR>						            " 常规模式下输入 cM 清除行尾 ^M 符号
-map <C-Tab> :bnext<CR>
-map <S-Tab> :bp<CR>
 map <C-S>   :w!<CR>
 
+" 插入模式下移动光标
 imap <M-h> <left>
 imap <M-l> <Right>
 imap <M-k> <Up>
@@ -363,12 +344,6 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 " -----------------------------------------------------------------------------
 "  < indentLine 插件配置 >
 " -----------------------------------------------------------------------------
-" 用于显示对齐线，与 indent_guides 在显示方式上不同，根据自己喜好选择了
-" 在终端上会有屏幕刷新的问题，这个问题能解决有更好了,仅支持VIM7.3以上版本
-" 开启/关闭对齐线
-"nmap line :IndentLinesToggle<CR>
-":command! Line :IndentLinesToggle
-
 " 设置Gvim的对齐线样式
 if g:isGUI
     let g:indentLine_char = "|"
@@ -380,7 +355,6 @@ let g:indentLine_color_term = 239
 
 " 设置 GUI 对齐线颜色，如果不喜欢可以将其注释掉采用默认颜色
 " let g:indentLine_color_gui = '#A4E57E'
-
 let g:indentLine_enabled=0
 
 
@@ -503,17 +477,6 @@ let Tlist_Show_Menu = 0
 let Tlist_Use_Horiz_Window = 0
 
 
-"************************* WinManager插件设置 ****************************
-"W+M : 打开/关闭WinManager插件（文档目录和taglist组合窗口）
-let g:winManagerWindowLayout='FileExplorer|TagList'
-"在进入vim时自动打开winmanager 
-let g:AutoOpenWinManager = 0
-"设置winmanager窗口宽度，默认为25
-let g:winManagerWidth = 25
-"设置taglistbuffer的最高限制：
-let g:bufExplorerMaxHeight=30                            
-"**************************** end ***************************************
-
 " -----------------------------------------------------------------------------
 "  < ZoomWin 插件配置 >
 " -----------------------------------------------------------------------------
@@ -541,25 +504,6 @@ nmap <F8> :! ctags -R<CR>  " 打开ctages
 " 自动切换目录为当前编辑文件所在目录
 au BufRead,BufNewFile,BufEnter * cd %:p:h
 
-" =============================================================================
-"                     << windows 下解决 Quickfix 乱码问题 >>
-" =============================================================================
-" windows 默认编码为 cp936，而 Gvim(Vim) 内部编码为 utf-8，所以常常输出为乱码
-" 以下代码可以将编码为 cp936 的输出信息转换为 utf-8 编码，以解决输出乱码问题
-" 但好像只对输出信息全部为中文才有满意的效果，如果输出信息是中英混合的，那可能
-" 不成功，会造成其中一种语言乱码，输出信息全部为英文的好像不会乱码
-" 如果输出信息为乱码的可以试一下下面的代码，如果不行就还是给它注释掉
-
-" if g:iswindows
-"     function QfMakeConv()
-"         let qflist = getqflist()
-"         for i in qflist
-"            let i.text = iconv(i.text, "cp936", "utf-8")
-"         endfor
-"         call setqflist(qflist)
-"      endfunction
-"      au QuickfixCmdPost make call QfMakeConv()
-" endif
 
 " =============================================================================
 "                          << 其它 >>
@@ -636,9 +580,3 @@ endf
 autocmd BufNewFile  model.php    0r ~/.vim/template/model.php
 autocmd BufNewFile  control.php  0r ~/.vim/template/control.php
 autocmd BufNewFile  *.html.php   0r ~/.vim/template/html.php
-
-"source ~/.vim/plugin/php-doc.vim 
-"inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-"nnoremap <C-P> :call PhpDocSingle()<CR> 
-"vnoremap <C-P> :call PhpDocRange()<CR> 
-
