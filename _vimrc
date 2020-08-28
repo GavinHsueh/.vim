@@ -304,7 +304,6 @@ Bundle 'majutsushi/tagbar'
 Bundle 'taglist.vim'
 Bundle 'ZoomWin'
 Bundle 'EasyGrep'
-Bundle 'Stormberz/tablify'
 
 " -----------------------------------------------------------------------------
 "  < BufExplorer 插件配置 >
