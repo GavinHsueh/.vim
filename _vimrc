@@ -1,8 +1,11 @@
 "************************** 快捷键设置 **************************
+"设置先导键
+let mapleader = "\<space>"
+
 "F1 : 显示帮助
-"F2 : 显隐菜单工具栏
+"F2 : 显隐Gvim菜单工具栏
 "F3 : 显隐nerdtree文档目录
-"F4 : 
+"F4 : 打开Undotree撤销树历史记录管理
 "F5 : 打开easygrep查询工具
 "F6 : 
 "F7 : 
@@ -10,21 +13,25 @@
 "F9 :
 "F10 : 
 "F11 : 
-"F12 : 当前窗口保存并退出
+"F12 : 
 "ctrl+]: 光标便跳转到函数的定义处
 "ctrl+t: 光标返回函数调用处
-",tb : 显隐tagbar插件
-",tl : 显隐taglist插件
-",nt : 显隐nerdtree插件
+"<leader>tb : 显隐tagbar插件
+"<leader>tl : 显隐taglist插件
+"<leader>nt : 显隐nerdtree插件
+"<leader>ut : 显隐undotree插件
+"<leader>ol : 左右纵向查看已打开的文件列表
+"<leader>ul : 上下横向查看已打开的文件列表
+"<leader>line : 开启/关闭对齐线
+"<leader>r : mark插件，标记加亮不同标签
+"<leader>vip : 多窗口时将当前窗口最大化
 "Ctrl+p : 一个全路径模糊文件，缓冲区，检索插件(ctrlp.vim 插件)
-",ol : 左右纵向查看已打开的文件列表
-",ul : 上下横向查看已打开的文件列表
 "Ctrl+e : emmet插件，快速写HTML代码
-",line : 开启/关闭对齐线
-",r : mark插件，标记加亮不同标签
-",vip : 多窗口时将当前窗口最大化
 "m+字母 : 设置一个标记(a-z)
 "`+字母 : 跳转到指定标记处
+"Ctrl+h/j/k/l : 多窗口时，光标快速在窗口间跳转
+"Ctrl+up/down/left/right方向键 : 多窗口时，将当前窗口移动到最上/下/左/右端。
+"Ctrl+Alt+up/down/left/right方向键 : 多窗口时，调整窗口大小
 "**************************** end ********************************
 
 " =============================================================================
@@ -151,6 +158,16 @@ set nowb
 set vb t_vb=                                		  " 关闭提示音
 "set mouse=a                                          " 在所有的模式下面打开鼠标。
 
+" -----------------------------------------------------------------------------
+"  < 折叠设置 >
+" -----------------------------------------------------------------------------
+"set foldenable                                        " 启用折叠
+"set foldmethod=indent                                " indent 折叠方式
+"set foldcolumn=1                                      " 设置折叠区域的宽度
+"setlocal foldlevel=1                                  " 设置折叠层数为
+":highlight FoldColumn guibg=grey guifg=red            " 设置折叠颜色
+" 常规模式下用空格键来开关光标行所在折叠（注：zR 展开所有折叠，zM 关闭所有折叠）
+"nnoremap - @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " -----------------------------------------------------------------------------
 "  < 界面配置 >
@@ -175,7 +192,7 @@ set completeopt=longest,menu  						  " 关掉智能补全时的预览窗口
 
 " 状态栏配置
 set laststatus=2                                      " 启用状态栏信息
-set statusline=\ %F%m%r%h%w%=\ [%{&ff}]\ [%Y]\ [%{&fileencoding}]\ [%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=\ %F%m%r%h%w%=\ [%Y]\ [%{&ff}]\ [%{&fileencoding}]\ [%04l,%04v][%p%%]\ [LEN=%L]
 " 使状态行根据状态的不同，显示不同的颜色。
 function! InsertStatuslineColor(mode)
 if a:mode == 'i'
@@ -249,7 +266,6 @@ set t_te=
 "  < 快捷键设置 >
 " -----------------------------------------------------------------------------
 nmap <F5> :Grep 
-nmap <F12> :exit<CR>        						            " 当前窗口保存并退出
 nmap cS :%s/\s\+$//g<CR>:noh<CR>					            " 常规模式下输入 cS 清除行尾空格
 nmap cM :%s/\r$//g<CR>:noh<CR>						            " 常规模式下输入 cM 清除行尾 ^M 符号
 map <C-S>   :w!<CR>
@@ -259,6 +275,25 @@ imap <M-h> <left>
 imap <M-l> <Right>
 imap <M-k> <Up>
 imap <M-j> <Down>
+
+" 多窗口时，光标快速在窗口间跳转
+noremap <c-h> <c-w><c-h>
+noremap <c-j> <c-w><c-j>
+noremap <c-k> <c-w><c-k>
+noremap <c-l> <c-w><c-l>
+
+
+" 多窗口时，移动当前窗口到最上、下、左、右端
+noremap <c-Left> <c-w>H
+noremap <c-Up> <c-w>K
+noremap <c-Down> <c-w>J
+noremap <c-Right> <c-w>L
+
+" 多窗口时，调整窗口大小
+noremap <c-m-Left> <c-w><
+noremap <c-m-Up> <c-w>-
+noremap <c-m-Down> <c-w>+
+noremap <c-m-Right> <c-w>>
 
 
 " =============================================================================
@@ -304,6 +339,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'taglist.vim'
 Bundle 'ZoomWin'
 Bundle 'EasyGrep'
+Bundle 'mbbill/undotree'
+Bundle 'easymotion/vim-easymotion'
 
 " -----------------------------------------------------------------------------
 "  < BufExplorer 插件配置 >
@@ -482,6 +519,12 @@ let Tlist_Use_Horiz_Window = 0
 " 用于分割窗口的最大化与还原
 " 常规模式下按快捷键 ,vip 在最大化与还原间切换
 
+" -----------------------------------------------------------------------------
+"  < Undotree 插件配置 >
+" -----------------------------------------------------------------------------
+" 该插件用于管理撤销树，查看管理历史操作记录。
+nnoremap <F4> :UndotreeToggle<CR>
+
 
 " =============================================================================
 "                          << 以下为常用工具配置 >>
@@ -507,11 +550,6 @@ au BufRead,BufNewFile,BufEnter * cd %:p:h
 " =============================================================================
 "                          << 其它 >>
 " =============================================================================
-" 注：上面配置中的"<Leader>"在本软件中设置为"\"键（引号里的反斜杠），如<Leader>t
-" 指在常规模式下按"\"键加"t"键，这里不是同时按，而是先按"\"键后按"t"键，间隔在一
-" 秒内，而<Leader>cs是先按"\"键再按"c"又再按"s"键；如要修改"<leader>"键，可以把
-" 下面的设置取消注释，并修改双引号中的键为你想要的，如修改为逗号键。
-let mapleader = ","
 
 "*****************************解决PHP/html/CSS/JS混编缩进问题**************************
 nnoremap <leader>html :set filetype=html<CR>
@@ -531,6 +569,7 @@ nnoremap <leader>wm :WMToggle<CR>
 nnoremap <leader>tl :TagbarClose<CR>:Tlist<CR>
 nnoremap <leader>tb :TlistClose<CR>:TagbarToggle<CR>
 nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>ut :UndotreeToggle<CR>
 
 "******************************* 括号自动补全 *************************************
 inoremap ( ()<Esc>i
