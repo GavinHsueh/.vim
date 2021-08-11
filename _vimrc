@@ -381,9 +381,7 @@ let g:bufExplorerSplitRight       = 0     " 居左分割
 let g:bufExplorerSplitVertical    = 1     " 垂直分割
 let g:bufExplorerSplitVertSize    = 30    " Split width
 let g:bufExplorerUseCurrentWindow = 1     " 在新窗口中打开
-autocmd BufWinEnter \[Buf\ List\] setl nonumber
-" 
-
+autocmd BufWinEnter \[Buf\ List\] setl nonumber 
 
 " -----------------------------------------------------------------------------
 "  < ctrlp.vim 插件配置 >
