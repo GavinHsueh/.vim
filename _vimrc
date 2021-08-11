@@ -247,7 +247,7 @@ endif
 set t_ti=
 set t_te=
 
-" 自动完成。
+" 自动完成
 "autocmd FileType php          setlocal omnifunc=phpcomplete#CompletePHP
 "autocmd FileType html         setlocal omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType javascript   setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -295,6 +295,26 @@ noremap <c-m-Up> <c-w>-
 noremap <c-m-Down> <c-w>+
 noremap <c-m-Right> <c-w>>
 
+" 解决PHP/html/CSS/JS混编缩进问题
+nnoremap <leader>html :set filetype=html<CR>
+nnoremap <leader>php :set filetype=php<CR>
+nnoremap <leader>css :set filetype=css<CR>
+nnoremap <leader>js :set filetype=javascript<CR>
+nnoremap <leader>unix :set filetype=unix<CR>
+nnoremap <leader>doc :set filetype=doc<CR>
+
+" 自定义字母组合快捷键设置
+nnoremap <leader>vip :ZoomWin<CR>
+nnoremap <leader>line :IndentLinesToggle<CR>
+nnoremap <leader>ul :BufExplorerHorizontalSplit<CR>
+nnoremap <leader>ol :BufExplorerVerticalSplit<CR>
+nnoremap <leader>wm :WMToggle<CR>
+nnoremap <leader>tl :TagbarClose<CR>:Tlist<CR>
+nnoremap <leader>tb :TlistClose<CR>:TagbarToggle<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>ut :UndotreeToggle<CR>
+
+
 
 " =============================================================================
 "                          << 以下为常用插件配置 >>
@@ -307,8 +327,8 @@ noremap <c-m-Right> <c-w>>
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 " git clone https://github.com/gmarik/vundle.git d:/vim/vimfiles/bundle/vundle
 
-":BundleList     //会显示你vimrc里面填写的所有插件名称
-":BundleInstall  //会自动下载安装或更新你的插件。
+" :BundleList     //会显示你vimrc里面填写的所有插件名称
+" :BundleInstall  //会自动下载安装或更新你的插件。
 
 set nocompatible                                      " 禁用 Vi 兼容模式
 filetype off                                          " 禁用文件类型侦测
@@ -536,42 +556,22 @@ nnoremap <F4> :UndotreeToggle<CR>
 " -----------------------------------------------------------------------------
 " 对浏览代码非常的方便,可以在函数,变量之间跳转等
 nmap <F8> :! ctags -R<CR>  " 打开ctages
-"当光标在某个函数调用处时，按ctrl+]，光标便跳转到函数的定义处,再按ctrl+t，光标返回函数调用处
+" 当光标在某个函数调用处时，按ctrl+]，光标便跳转到函数的定义处,再按ctrl+t，光标返回函数调用处
 
 
-" =============================================================================
+" ==============================================================================
 "                          << 以下为常用自动命令配置 >>
-" =============================================================================
+" ==============================================================================
 
 " 自动切换目录为当前编辑文件所在目录
 au BufRead,BufNewFile,BufEnter * cd %:p:h
 
 
-" =============================================================================
+" ==============================================================================
 "                          << 其它 >>
-" =============================================================================
+" ==============================================================================
 
-"*****************************解决PHP/html/CSS/JS混编缩进问题**************************
-nnoremap <leader>html :set filetype=html<CR>
-nnoremap <leader>php :set filetype=php<CR>
-nnoremap <leader>css :set filetype=css<CR>
-nnoremap <leader>js :set filetype=javascript<CR>
-nnoremap <leader>unix :set filetype=unix<CR>
-nnoremap <leader>doc :set filetype=doc<CR>
-"**************************************************************************************
-
-"**********************************自定义字母组合快捷键设置**********************************
-nnoremap <leader>vip :ZoomWin<CR>
-nnoremap <leader>line :IndentLinesToggle<CR>
-nnoremap <leader>ul :BufExplorerHorizontalSplit<CR>
-nnoremap <leader>ol :BufExplorerVerticalSplit<CR>
-nnoremap <leader>wm :WMToggle<CR>
-nnoremap <leader>tl :TagbarClose<CR>:Tlist<CR>
-nnoremap <leader>tb :TlistClose<CR>:TagbarToggle<CR>
-nnoremap <leader>nt :NERDTreeToggle<CR>
-nnoremap <leader>ut :UndotreeToggle<CR>
-
-"******************************* 括号自动补全 *************************************
+" ******************************* 括号自动补全 *************************************
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 "inoremap { {<CR>}<Esc>O
@@ -611,7 +611,7 @@ function! QuoteDelim(char)
  return a:char.a:char."\<Esc>i"
  endif
 endf 
-"*********************************** end ********************************************************
+" *********************************** end ********************************************************
 
 
 " 模板。
