@@ -247,18 +247,6 @@ endif
 set t_ti=
 set t_te=
 
-" 自动完成
-"autocmd FileType php          setlocal omnifunc=phpcomplete#CompletePHP
-"autocmd FileType html         setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript   setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd BufNewFile,BufRead *.conf set filetype=apache
-"autocmd BufNewFile,BufRead *.vol  set filetype=vo_base
-"autocmd BufNewFile,BufRead *todo* set filetype=vo_base
-"autocmd BufNewFile,BufRead *.lst  set filetype=vo_base
-"autocmd BufNewFile,BufRead *.tree set filetype=vo_base
-"autocmd BufNewFile,BufRead *.book set filetype=vo_base
-"imap <c-f>  <c-x><c-o>
-
 " 重命名文件名
 :command! -nargs=1 Rename let tpname = expand('%:t') | saveas <args> | edit <args> | call delete(expand(tpname))
 
@@ -313,7 +301,6 @@ nnoremap <leader>tl :TagbarClose<CR>:Tlist<CR>
 nnoremap <leader>tb :TlistClose<CR>:TagbarToggle<CR>
 nnoremap <leader>nt :NERDTreeToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
-
 
 
 " =============================================================================
