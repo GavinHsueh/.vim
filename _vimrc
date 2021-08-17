@@ -215,6 +215,19 @@ if g:isGUI
 "     set lines=50 columns=150                         " 指定窗口大小，lines为高度，columns为宽度
 endif
 
+if has("gui_running")
+  set lines=999 columns=999
+else
+" This is console Vim.
+  if exists("+lines")
+    set lines=30
+  endif
+  if exists("+columns")
+    set columns=80
+  endif
+endif
+
+
 " 显示/隐藏菜单栏、工具栏、滚动条，可用 F2 切换
 if g:isGUI
     set guioptions-=m
