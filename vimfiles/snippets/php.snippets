@@ -349,7 +349,7 @@ snippet ,,
 snippet ..
 	->${1}
 snippet assign
-	$this->assign("${1:varName}",${2:varValue});
+	$this->assign("${1:varName}",${2:Value});
 snippet createLink
 	$this->createLink("${1:moduleName}","${2:funName}")${3}
 snippet inlink
@@ -410,7 +410,7 @@ snippet html::icon
 snippet html::rss
 	html::rss(${1:$url},${2:$title});
 snippet html::a
-	html::a();
+	html::a(${1});
 snippet html::mailto
 	html::mailto(${1:$mail},${2:$title});
 snippet html::select
@@ -422,15 +422,15 @@ snippet html::radio
 snippet html::checkbox
 	html::checkbox(${1:$name},${2:$options},${3:$checked});
 snippet html::text
-	html::input();
+	html::input(${1});
 snippet html::hidden
-	html::hidden();
+	html::hidden(${1});
 snippet html::password
-	html::password();
+	html::password(${1});
 snippet html::textarea
-	html::textarea();
+	html::textarea(${1});
 snippet html::file
-	html::file();
+	html::file(${1});
 snippet html::img
 	html::image(${1:$src});
 snippet html::submit
