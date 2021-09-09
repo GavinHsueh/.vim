@@ -19,6 +19,7 @@ let mapleader = "\<space>"
 "<leader>tb : 显隐tagbar插件
 "<leader>tl : 显隐taglist插件
 "<leader>nt : 显隐nerdtree插件
+"<leader>f  : 刷新nerdtree文档列表目录
 "<leader>ut : 显隐undotree插件
 "<leader>ol : 左右纵向查看已打开的文件列表
 "<leader>ul : 上下横向查看已打开的文件列表
@@ -226,7 +227,6 @@ else
     set columns=80
   endif
 endif
-
 
 " 显示/隐藏菜单栏、工具栏、滚动条，可用 F2 切换
 if g:isGUI
@@ -439,6 +439,7 @@ let NERDTreeMouseMode=2
 let NERDTreeWinPos="left"                   " 在左侧显示NERDTree窗口
 let NERDTreeWinSize=23                      " 设置NERDTree窗口的宽度
 let NERDTreeDirArrows=0						" nerdtree插件目录箭头 1 显示箭头  0传统+-|号
+nmap <Leader>f :NERDTreeFocus<cr>R<c-w><c-p> " 刷新NERDTree文档列表
 
 
 " -----------------------------------------------------------------------------
