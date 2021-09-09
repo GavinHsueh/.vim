@@ -613,7 +613,7 @@ endf
 " *********************************** end ********************************************************
 
 
-" 模板。
+" 自动导入模板内容，只在当新建打开一个不存在的新文件时生效。
 autocmd BufNewFile  model.php    0r ~/.vim/template/model.php
 autocmd BufNewFile  control.php  0r ~/.vim/template/control.php
 autocmd BufNewFile  *.html.php   0r ~/.vim/template/html.php
