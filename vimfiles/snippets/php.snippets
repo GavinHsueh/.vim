@@ -476,3 +476,16 @@ snippet js::exportConfigVars
 	js::exportConfigVars();
 snippet js::execute
 	js::execute(${1:$code});
+snippet htmltpl
+	<?php include '../../common/view/header.html.php';?>
+	<?php include '../../common/view/footer.html.php';?>
+snippet controltpl
+	<?php
+	class ${1:moduleName} extends control
+	{
+	}
+snippet modeltpl
+	<?php
+	class ${1:moduleName}Model extends model
+	{
+	}
