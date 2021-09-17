@@ -53,7 +53,7 @@ snippet smarty
 snippet /*
 	/**
 	 * ${1}
-	 **/
+	 */
 # Class - post doc
 snippet doc_cp
 	/**
@@ -489,3 +489,20 @@ snippet modeltpl
 	class ${1:moduleName}Model extends model
 	{
 	}
+snippet controlext
+	<?php
+	include '../../control.php'; 
+	// xxx 为当前模块名
+	class myXxx extends xxx
+	{
+	}
+snippet modelext
+	<?php
+	/** 
+	 * 本文件命名规则：ext/model/class/{插件名}.class.php
+	 * 需声明一个当前模块的 model 扩展子类:
+	 * 子类名命名规则：{插件名}{模块名}
+	 * 父类是当前模块的 model 类，即：{模块名}Model
+	 * 之后在 ext/model/{插件名}.php 文件中直接再声明一遍本类方法，方法体为：
+	 * $this->loadExtension('{插件名}')->{方法名}();
+	 */

@@ -324,8 +324,8 @@ nnoremap <leader>ut :UndotreeToggle<CR>
 " -----------------------------------------------------------------------------
 " 用于更方便的管理vim插件，具体用法参考 :h vundle 帮助
 " Vundle工具安装方法为在终端输入如下命令(系统先安装git)
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" git clone https://github.com/gmarik/vundle.git d:/vim/vimfiles/bundle/vundle
+" Linux：git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" Windows：git clone https://github.com/gmarik/vundle.git d:/vim/vimfiles/bundle/vundle
 
 " :BundleList     //会显示你vimrc里面填写的所有插件名称
 " :BundleInstall  //会自动下载安装或更新你的插件。
@@ -617,3 +617,14 @@ endf
 autocmd BufNewFile  model.php    0r ~/.vim/template/model.php
 autocmd BufNewFile  control.php  0r ~/.vim/template/control.php
 autocmd BufNewFile  *.html.php   0r ~/.vim/template/html.php
+autocmd BufNewFile  *.sh         0r ~/.vim/template/bash.sh
+
+" 保存vimrc文件时，手动快捷加载更新配置
+" nnoremap <leader>sv :source $MYVIMRC<CR>
+" 保存vimrc文件时，自动即时加载更新配置
+if has ('autocmd') 
+ augroup vimrc
+    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+  augroup END
+endif
