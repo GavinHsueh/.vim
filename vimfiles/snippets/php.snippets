@@ -493,7 +493,7 @@ snippet controlext
 	<?php
 	include '../../control.php'; 
 	// xxx 为当前模块名
-	class myXxx extends xxx
+	class ${1:myXxx} extends ${2:xxx}
 	{
 	}
 snippet modelext
@@ -506,3 +506,17 @@ snippet modelext
 	 * 之后在 ext/model/{插件名}.php 文件中直接再声明一遍本类方法，方法体为：
 	 * $this->loadExtension('{插件名}')->{方法名}();
 	 */
+	 ${1}
+snippet browse
+	public function browse($recTotal = 0, $recPerPage = 20, $pageID = 1)
+	{
+			//加载分页类，并生成pager对象
+			$this->app->loadClass('pager', $static = true);
+			$pager = new pager($recTotal, $recPerPage, $pageID);
+			$this->view->pager = $pager;
+			
+			// 将分页类传给model的获取数据方法，返回的数据赋给模板变量
+			${1}
+	}
+snippet pager
+	<?php $pager->show();?>
