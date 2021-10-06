@@ -325,7 +325,7 @@ nnoremap <leader>ut :UndotreeToggle<CR>
 " 用于更方便的管理vim插件，具体用法参考 :h vundle 帮助
 " Vundle工具安装方法为在终端输入如下命令(系统先安装git)
 " Linux：git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" Windows：git clone https://github.com/gmarik/vundle.git d:/vim/vimfiles/bundle/vundle
+" Windows：git clone https://github.com/gmarik/vundle.git C:/Users/Administrator/vimfiles/bundle/vundle
 
 " :BundleList     //会显示你vimrc里面填写的所有插件名称
 " :BundleInstall  //会自动下载安装或更新你的插件。
