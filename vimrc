@@ -131,10 +131,10 @@ set smartindent                                       " 启用智能对齐方式
 set expandtab                                         " 将Tab键转换为空格
 set tabstop=2                                         " 设置Tab键的宽度，可以更改，如：宽度为2
 set shiftwidth=2                                      " 换行时自动缩进宽度，可更改（宽度同tabstop）
-autocmd FileType java,php setl shiftwidth=4
-autocmd FileType java,php setl tabstop=4
-autocmd FileType html,python,vim,javascript setlocal shiftwidth=2
-autocmd FileType html,python,vim,javascript setlocal tabstop=2
+autocmd FileType java,python,php setl shiftwidth=4
+autocmd FileType java,python,php setl tabstop=4
+autocmd FileType html,vim,javascript setlocal shiftwidth=2
+autocmd FileType html,vim,javascript setlocal tabstop=2
 set smarttab                                          " 指定按一次backspace就删除shiftwidth宽度
 set backspace=indent,eol,start 						  " 不设定在插入状态无法用退格键和 Delete 键删除回车符
 set showmatch               						  " 高亮现实匹配的括号 
@@ -337,8 +337,8 @@ if g:islinux
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 else
-    set rtp+=$VIM/vimfiles/bundle/vundle/
-    call vundle#rc('$VIM/vimfiles/bundle/')
+    set rtp+=$HOME/vimfiles/bundle/vundle/
+    call vundle#rc('$HOME/vimfiles/bundle/')
 endif
 
 " 使用Vundle来管理插件，这个必须要有。
@@ -361,6 +361,7 @@ Bundle 'ZoomWin'
 Bundle 'EasyGrep'
 Bundle 'mbbill/undotree'
 Bundle 'easymotion/vim-easymotion'
+Bundle 'yianwillis/vimcdoc'
 
 " -----------------------------------------------------------------------------
 "  < BufExplorer 插件配置 >
@@ -445,12 +446,8 @@ nmap <Leader>f :NERDTreeFocus<cr>R<c-w><c-p> " 刷新NERDTree文档列表
 " -----------------------------------------------------------------------------
 "  < snipMate 插件配置 >
 " -----------------------------------------------------------------------------
-" 用于各种代码补全，这种补全是一种对代码中的词与代码块的缩写补全，详细用法可以参
-" 考使用说明或网络教程等。不过有时候也会与 supertab 插件在补全时产生冲突，如果大
-" 侠有什么其它解决方法希望不要保留呀
+" 用于各种代码补全，这种补全是一种对代码中的词与代码块的缩写补全
 filetype plugin on
-"let snippets_dir = $VIMRUNTIME.'\..\vimfiles\snippets\'
-
 
 
 " -----------------------------------------------------------------------------
