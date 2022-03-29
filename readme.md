@@ -1,5 +1,5 @@
 ## 关于.vim
-本项目主要是整理我本人使用的 Vim 配置文档和相关插件、脚本，感兴趣的童鞋可以参考使用。
+本项目主要是整理自己平时使用的 Vim 配置文档和相关插件、脚本，感兴趣的童鞋可以参考使用。
 注：适合自己的，才是最好的！
 
 ## Windows系统
@@ -40,6 +40,6 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 如果下载安装插件速度慢，也可以考虑解压 bundle.zip 包，覆盖 bundle 文件夹。
 
 ## 其他
-VIM中文社区： http://www.osvim.com
+VIM中文社区： https://www.osvim.com
 
 VIMqq交流群：475392251
