@@ -6,11 +6,11 @@ let mapleader = "\<space>"
 "F2 : 显隐Gvim菜单工具栏
 "F3 : 显隐nerdtree文档目录
 "F4 : 打开Undotree撤销树历史记录管理
-"F5 : 打开easygrep查询工具
+"F5 : 按 F5 运行当前脚本，并新建窗口用于输出结果，以便调试
 "F6 : 
 "F7 : 
 "F8 : 打开ctages,生成更新tags文件（程序被改动时，须运行一次，ctages插件才可有效)
-"F9 :
+"F9 : 打开easygrep查询工具
 "F10 : 
 "F11 : 
 "F12 : 
@@ -131,10 +131,10 @@ set smartindent                                       " 启用智能对齐方式
 set expandtab                                         " 将Tab键转换为空格
 set tabstop=2                                         " 设置Tab键的宽度，可以更改，如：宽度为2
 set shiftwidth=2                                      " 换行时自动缩进宽度，可更改（宽度同tabstop）
-autocmd FileType java,python,php setl shiftwidth=4
-autocmd FileType java,python,php setl tabstop=4
-autocmd FileType html,vim,javascript setlocal shiftwidth=2
-autocmd FileType html,vim,javascript setlocal tabstop=2
+autocmd FileType javascript,python,php setl shiftwidth=4
+autocmd FileType javascript,python,php setl tabstop=4
+autocmd FileType html,vim setlocal shiftwidth=2
+autocmd FileType html,vim setlocal tabstop=2
 set smarttab                                          " 指定按一次backspace就删除shiftwidth宽度
 set backspace=indent,eol,start 						  " 不设定在插入状态无法用退格键和 Delete 键删除回车符
 set showmatch               						  " 高亮现实匹配的括号 
@@ -162,11 +162,10 @@ set vb t_vb=                                		  " 关闭提示音
 " -----------------------------------------------------------------------------
 "  < 折叠设置 >
 " -----------------------------------------------------------------------------
-"set foldenable                                        " 启用折叠
-"set foldmethod=indent                                " indent 折叠方式
-"set foldcolumn=1                                      " 设置折叠区域的宽度
-"setlocal foldlevel=1                                  " 设置折叠层数为
-":highlight FoldColumn guibg=grey guifg=red            " 设置折叠颜色
+set nofoldenable                                        " 启用 Vim 时关闭折叠
+set foldmethod=indent                                   " indent 折叠方式
+"set foldcolumn=1                                       " 设置折叠区域的宽度
+":highlight FoldColumn guibg=grey guifg=white           " 设置折叠颜色
 " 常规模式下用空格键来开关光标行所在折叠（注：zR 展开所有折叠，zM 关闭所有折叠）
 "nnoremap - @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
@@ -208,18 +207,11 @@ au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline guibg=white guifg=blue
 hi statusline guibg=white
 
-
-" 设置 gVim 窗口初始位置及大小
-if g:isGUI
-     au GUIEnter * simalt ~x                          " 窗口启动时自动最大化
-     winpos 300 10                                    " 指定窗口出现的位置，坐标原点在屏幕左上角
-"     set lines=50 columns=150                         " 指定窗口大小，lines为高度，columns为宽度
-endif
-
+" 设置 gVim 窗口初始大小
 if has("gui_running")
   set lines=999 columns=999
 else
-" This is console Vim.
+" 在终端运行 vim 命令时的窗口大小
   if exists("+lines")
     set lines=30
   endif
@@ -266,10 +258,13 @@ set t_te=
 " -----------------------------------------------------------------------------
 "  < 快捷键设置 >
 " -----------------------------------------------------------------------------
-nmap <F5> :Grep 
-nmap cS :%s/\s\+$//g<CR>:noh<CR>					            " 常规模式下输入 cS 清除行尾空格
-nmap cM :%s/\r$//g<CR>:noh<CR>						            " 常规模式下输入 cM 清除行尾 ^M 符号
-map <C-S>   :w!<CR>
+nmap <Leader>cS :%s/\s\+$//g<CR>:noh<CR>					            " 常规模式下输入 cS 清除行尾空格
+nmap <Leader>cM :%s/\r$//g<CR>:noh<CR>						            " 常规模式下输入 cM 清除行尾 ^M 符号
+map <C-S> :w<CR>
+nmap <Leader>lb ^
+nmap <Leader>le $
+vnoremap <Leader>y "+y
+nmap <Leader>p "+p
 
 " 插入模式下移动光标
 imap <M-h> <left>
@@ -304,16 +299,16 @@ nnoremap <leader>js :set filetype=javascript<CR>
 nnoremap <leader>unix :set filetype=unix<CR>
 nnoremap <leader>doc :set filetype=doc<CR>
 
-" 自定义字母组合快捷键设置
+" 插件自定义快捷键设置
 nnoremap <leader>vip :ZoomWin<CR>
 nnoremap <leader>line :IndentLinesToggle<CR>
 nnoremap <leader>ul :BufExplorerHorizontalSplit<CR>
 nnoremap <leader>ol :BufExplorerVerticalSplit<CR>
-nnoremap <leader>wm :WMToggle<CR>
 nnoremap <leader>tl :TagbarClose<CR>:Tlist<CR>
 nnoremap <leader>tb :TlistClose<CR>:TagbarToggle<CR>
 nnoremap <leader>nt :NERDTreeToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
+nmap <F9> :Grep 
 
 
 " =============================================================================
@@ -625,3 +620,17 @@ if has ('autocmd')
     autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
   augroup END
 endif
+
+" 按 F5 运行当前脚本，并新建窗口用于输出结果，以便调试
+function! Setup_ExecNDisplay()
+  execute "w"
+  execute "silent !chmod +x %:p"
+  let n=expand('%:t')
+  execute "silent !%:p 2>&1 | tee ~/.vim/output_".n
+  " I prefer vsplit
+  "execute "split ~/.vim/output_".n
+  execute "vsplit ~/.vim/output_".n
+  execute "redraw!"
+  set autoread
+endfunction
+:nmap <F5> :call Setup_ExecNDisplay()<CR>

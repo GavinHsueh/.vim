@@ -154,23 +154,23 @@ snippet doc_i
 	} // END interface $1
 # class ...
 snippet class
-	class ${1:ClassName}
+	class ${1}
 	{
 		${2}
 	}
 snippet construct
-	function __construct(${1:argument})
+	function __construct(${1})
 	{
 		${2}
 	}
 # define(...)
 snippet define
-	define('${1}', ${2});${3}
+	define('${1}', ${2});
 # defined(...)
 snippet defined
 	${1}defined('${2}')${3}
 snippet while
-	while (${1:/* condition */})
+	while (${1})
 	{
 		${2}
 	}
@@ -179,14 +179,14 @@ snippet do
 	do
 	{
 		${2}
-	} while (${1:/* condition */});
+	} while (${1});
 snippet if
-	if (${1:/* condition */})
+	if (${1})
 	{
 		${2}
 	}
 snippet ifelse
-	if (${1:/* condition */})
+	if (${1})
 	{
 		${2}
 	}
@@ -200,17 +200,17 @@ snippet else
 		${1}
 	}
 snippet elseif
-	elseif
-	(${1:/* condition */}) {
+	elseif(${1})
+	{
 		${2}
 	}
 # Tertiary conditional
-snippet t
-	$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}
+snippet ?:
+	${1} = (${2}) ? ${3} : ${4};
 snippet switch
-	switch ($${1:variable})
+	switch ($${1})
 	{
-		case '${2:value}':
+		case '${2}':
 			${3}
 			break;
 		
@@ -219,7 +219,7 @@ snippet switch
 			break;
 	}
 snippet case
-	case '${1:value}':
+	case '${1}':
 		${2}
 		break;
 	
@@ -239,13 +239,13 @@ snippet fun
 		${4}
 	}
 snippet function
-	function ${1:FunctionName}(${2})
+	function ${1}(${2})
 	{	
 		${3}
 	}
 # $... = array (...)
 snippet array
-	$${1:arrayName} = array('${2}' => ${3});${4}
+	$${1} = array('${2}' => ${3});
 
 # ZUI框架
 snippet zui:load
@@ -350,9 +350,11 @@ snippet ..
 snippet assign
 	$this->assign("${1:varName}",${2:Value});
 snippet createLink
-	$this->createLink("${1:moduleName}","${2:funName}")${3}
+	$this->createLink("${1:moduleName}","${2:funName}")
 snippet inlink
-	$this->inlink("${1:funName}")${2}
+	$this->inlink('${1:funName}')
+snippet locate
+	$this->locate(${1})
 snippet dao
 	$this->dao->${1}
 snippet post
@@ -510,13 +512,20 @@ snippet modelext
 snippet browse
 	public function browse($recTotal = 0, $recPerPage = 20, $pageID = 1)
 	{
-			//加载分页类，并生成pager对象
-			$this->app->loadClass('pager', $static = true);
-			$pager = new pager($recTotal, $recPerPage, $pageID);
-			$this->view->pager = $pager;
-			
-			// 将分页类传给model的获取数据方法，返回的数据赋给模板变量
-			${1}
+		//加载分页类，并生成pager对象
+		$this->app->loadClass('pager', $static = true);
+		$pager = new pager($recTotal, $recPerPage, $pageID);
+		$this->view->pager = $pager;
+		
+		// 将pager对象传给model的获取数据方法，返回的数据赋给模板变量
+		${1}
+	}
+snippet getList
+	public function getList($pager)
+	{
+		return $this->dao->select(*)->from('${1}')->orderBy('id desc')->page($pager)->fetchAll();
 	}
 snippet pager
 	<?php $pager->show();?>
+snippet send
+	$this->send(array("result"=>"${1:success/fail}", "${2:message/locate}"=>${3}));
