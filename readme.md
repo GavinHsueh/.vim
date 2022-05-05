@@ -42,4 +42,4 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ## 其他
 VIM中文社区： https://www.osvim.com
 
-VIMqq交流群：475392251
+VIM TG电报群：https://t.me/vimtgchat
