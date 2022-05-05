@@ -43,3 +43,10 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 VIM中文社区： https://www.osvim.com
 
 VIM TG电报群：https://t.me/vimtgchat
+
+IRC：
+网络：Libera.Chat
+服务器：irc.libera.chat/+6697
+频道：##vim.chat
+IRC教程：https://libera.chat/guides/basics
+web端：https://web.libera.chat/
